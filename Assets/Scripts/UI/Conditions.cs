@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Conditions : MonoBehaviour
+public class Conditions : MonoBehaviour // UI의 상태 클래스
 {
     private float curValue;
     [SerializeField] float startValue;
@@ -21,7 +21,7 @@ public class Conditions : MonoBehaviour
         curValue = startValue;
     }
 
-    private void Update()
+    private void Update() // UIbar를 전체에 비례해 채움
     {
         UIbar.fillAmount = GetPercentage();
     }
@@ -31,7 +31,7 @@ public class Conditions : MonoBehaviour
         return curValue / maxValue;
     }
 
-    public void Add(float value)
+    public void Add(float value) // 최대, 최소가 넘지 않게 계산
     {
         curValue = Mathf.Min(curValue + value, maxValue);
     }
